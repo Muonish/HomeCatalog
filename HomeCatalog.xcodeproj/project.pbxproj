@@ -1,0 +1,32 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		302E1BCE1C1CCD9900D1FCCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1BCD1C1CCD9900D1FCCA /* main.m */; };
+		302E1BD11C1CCD9900D1FCCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1BD01C1CCD9900D1FCCA /* AppDelegate.m */; };
+		302E1BD41C1CCD9900D1FCCA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1BD31C1CCD9900D1FCCA /* ViewController.m */; };
+		302E1BD71C1CCD9900D1FCCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302E1BD51C1CCD9900D1FCCA /* Main.storyboard */; };
+		302E1BD91C1CCD9900D1FCCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302E1BD81C1CCD9900D1FCCA /* Assets.xcassets */; };
+		302E1BDC1C1CCD9900D1FCCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302E1BDA1C1CCD9900D1FCCA /* LaunchScreen.storyboard */; };
+		302E1BE51C1CD4DE00D1FCCA /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1BE41C1CD4DE00D1FCCA /* CategoryViewController.m */; };
+		302E1BEB1C1CF0AA00D1FCCA /* DataBaseCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1BEA1C1CF0AA00D1FCCA /* DataBaseCommunicator.m */; };
+		302E1C171C1D74D200D1FCCA /* SubcategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C161C1D74D200D1FCCA /* SubcategoryViewController.m */; };
+		302E1C1A1C1D75AA00D1FCCA /* Subsection.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C191C1D75AA00D1FCCA /* Subsection.m */; };
+		302E1C1E1C1D99A100D1FCCA /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C1D1C1D99A100D1FCCA /* ItemsViewController.m */; };
+		302E1C211C1DB24800D1FCCA /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C201C1DB24800D1FCCA /* Item.m */; };
+		302E1C241C1DB36D00D1FCCA /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C231C1DB36D00D1FCCA /* Material.m */; };
+		302E1C271C1DB39A00D1FCCA /* Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C261C1DB39A00D1FCCA /* Measure.m */; };
+		302E1C2A1C1DDC7100D1FCCA /* ItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C291C1DDC7100D1FCCA /* ItemCollectionViewCell.m */; };
+		302E1C2D1C1E1EB600D1FCCA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C2C1C1E1EB600D1FCCA /* DetailViewController.m */; };
+		302E1C311C1EAE7A00D1FCCA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C301C1EAE7A00D1FCCA /* User.m */; };
+		302E1C341C1ED53B00D1FCCA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C331C1ED53B00D1FCCA /* LoginViewController.m */; };
+		302E1C371C1EE79200D1FCCA /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C361C1EE79200D1FCCA /* RegistrationViewController.m */; };
+		302E1C3A1C1EEC9C00D1FCCA /* Bag.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C391C1EEC9C00D1FCCA /* Bag.m */; };
+		302E1C3D1C1EF00200D1FCCA /* BagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C3C1C1EF00200D1FCCA /* BagViewController.m */; };
+		302E1C401C1EF2AF00D1FCCA /* BagViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 302E1C3F1C1EF2AF00D1FCCA /* BagViewCell.m */; };
+		};
