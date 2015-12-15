@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "DataBaseCommunicator.h"
 #import "LoginViewController.h"
 #import "Measure.h"
 #import "Material.h"
@@ -51,6 +52,13 @@
                                      [bag.items objectForKey:self.detailItem.ident]];
             }
         }
+
+        User *user = [User sharedUser];
+        if ([user.favorteIdents containsObject:self.detailItem.ident]) {
+            self.like.image = [UIImage imageNamed:@"likeFilled"];
+        } else {
+            self.like.image = [UIImage imageNamed:@"like"];
+        }
     }
 }
 
@@ -67,7 +75,15 @@
         if (!user.email) {
             return YES;
         } else {
-            self.like.image = [UIImage imageNamed:@"likeFilled"];
+            User *user = [User sharedUser];
+            if (![user.favorteIdents containsObject:self.detailItem.ident]) {
+                self.like.image = [UIImage imageNamed:@"likeFilled"];
+                [DataBaseCommunicator loadFavourite:self.detailItem.ident];
+            } else {
+                self.like.image = [UIImage imageNamed:@"like"];
+                [DataBaseCommunicator deleteFavourite:self.detailItem.ident];
+            }
+            user.favorteIdents = [DataBaseCommunicator downloadFavouritesForUserIdent:user.ident];
             return NO;
         }
     }
@@ -91,9 +107,7 @@
     }
 }
 
-- (IBAction)barLike:(UIBarButtonItem *)sender {
 
-}
 
 
 - (IBAction)barMinus:(UIBarButtonItem *)sender {

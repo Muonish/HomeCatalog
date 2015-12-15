@@ -10,4 +10,9 @@
 
 @interface RoomViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *mail;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+
 @end

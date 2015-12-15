@@ -10,8 +10,8 @@
 #import "SubcategoryViewController.h"
 
 @interface ItemsViewController : UICollectionViewController <SubcategoryViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *search;
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) UIGestureRecognizer *tapper;
 

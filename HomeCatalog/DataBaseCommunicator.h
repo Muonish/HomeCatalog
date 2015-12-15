@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Subsection.h"
+#import "Seria.h"
 #import "Item.h"
 #import "User.h"
 #import "Material.h"
@@ -20,10 +21,20 @@
 
 + (NSArray *)downloadSections;
 + (NSArray *)downloadSubsections: (NSString *)sectionName;
++ (NSArray *)downloadSeries;
 + (NSArray *)downloadItemsInSubsection: (Subsection *)subsection;
++ (NSArray *)downloadItemsInSeria: (Seria *)seria;
++ (NSArray *)downloadOrdersForUserIdent: (NSNumber *)ident;
++ (NSArray *)downloadFavouritesForUserIdent: (NSNumber *)ident;
 + (Item *)downloadItemByID: (NSNumber *)ident;
 + (BOOL)isUserExistsWithMail: (NSString *)mail;
 + (BOOL)isUserLoginWithMail: (NSString *)mail andPassword: (NSString *)password;
 + (void)loadUser: (User *)newUser;
++ (void)loadOrder: (NSString *)comment;
++ (void)loadFavourite: (NSNumber *)itemIdent;
++ (void)deleteFavourite: (NSNumber *)itemIdent;
+
++ (NSArray *)searshItemsByName: (NSString *)name;
++ (NSArray *)searshItemsBySeria: (NSString *)seriaName;
 
 @end

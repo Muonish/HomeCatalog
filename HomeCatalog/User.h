@@ -21,8 +21,8 @@
 @property (strong, nonatomic) NSString *tel;
 @property (strong, nonatomic) NSString *address;
 
-@property (strong, nonatomic) NSMutableArray *favorteIdents;
-@property (strong, nonatomic) NSMutableArray *orders;
+@property (strong, nonatomic) NSArray *favorteIdents;
+@property (strong, nonatomic) NSArray *orders;
 
 + (id)sharedUser;
 

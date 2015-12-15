@@ -16,16 +16,17 @@
 
 @implementation SubcategoryViewController
 
+static NSString *const cSeries = @"Серии";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.data = [DataBaseCommunicator downloadSubsections: self.detailItem];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if ([self.detailItem isEqualToString:cSeries]) {
+        self.data = [DataBaseCommunicator downloadSeries];
+    } else {
+        self.data = [DataBaseCommunicator downloadSubsections: self.detailItem];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,15 +48,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    Subsection *subsection = [self.data objectAtIndex:indexPath.row];
-    cell.textLabel.text = subsection.name;
+    if ([self.detailItem isEqualToString:cSeries]) {
+        Seria *seria = [self.data objectAtIndex:indexPath.row];
+        cell.textLabel.text = seria.name;
+    } else {
+        Subsection *subsection = [self.data objectAtIndex:indexPath.row];
+        cell.textLabel.text = subsection.name;
+    }
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath   *)indexPath {
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-    [self.delegate subcategorySelected:[self.data objectAtIndex:indexPath.row]];
+
+    if ([self.detailItem isEqualToString:cSeries]) {
+        [self.delegate seriaSelected:[self.data objectAtIndex:indexPath.row]];
+    } else {
+        [self.delegate subcategorySelected:[self.data objectAtIndex:indexPath.row]];
+    }
     //[self.navigationController popViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

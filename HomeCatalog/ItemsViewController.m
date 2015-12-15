@@ -27,11 +27,7 @@ static NSString * const reuseIdentifier = @"ReuseID";
                    initWithTarget:self action:@selector(handleSingleTap:)];
     self.tapper.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:self.tapper];
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    //[self.collectionView registerClass:[ItemCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
 
 }
 
@@ -60,6 +56,31 @@ static NSString * const reuseIdentifier = @"ReuseID";
     self.navigationItem.title = subsection.name;
     self.data = [DataBaseCommunicator downloadItemsInSubsection:subsection];
     [self.collectionView reloadData];
+}
+
+- (void) seriaSelected: (Seria *) seria{
+    self.navigationItem.title = seria.name;
+    self.data = [DataBaseCommunicator downloadItemsInSeria:seria];
+    [self.collectionView reloadData];
+}
+
+#pragma mark - TextFeild Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.search && ![textField.text isEqualToString:@""]) {
+        self.data = [DataBaseCommunicator searshItemsByName:self.search.text];
+        if (self.data.count == 0) {
+            self.data = [DataBaseCommunicator searshItemsBySeria:self.search.text];
+            if (self.data.count == 0) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Результаты поиска." message:@"Ничего не найдено."preferredStyle:UIAlertControllerStyleAlert];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"Продолжить" style:UIAlertActionStyleDefault handler:nil]];
+                    [self presentViewController:alert animated:YES completion:nil];
+            }
+        }
+        [self.collectionView reloadData];
+        [self.view endEditing:YES];
+    }
+    return YES;
 }
 
 #pragma mark - Segues
@@ -104,35 +125,5 @@ static NSString * const reuseIdentifier = @"ReuseID";
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

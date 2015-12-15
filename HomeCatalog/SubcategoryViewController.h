@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Subsection.h"
+#import "Seria.h"
 
 @protocol SubcategoryViewDelegate;
 
@@ -23,5 +24,6 @@
 
 @required
 - (void) subcategorySelected: (Subsection *) subsection;
+- (void) seriaSelected: (Seria *) seria;
 
 @end

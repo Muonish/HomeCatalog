@@ -1,5 +1,5 @@
 //
-//  Order.h
+//  Seria.h
 //  HomeCatalog
 //
 //  Created by Valeryia Breshko on 12/15/15.
@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Order : NSObject
+@interface Seria : NSObject
 
 @property (strong, nonatomic) NSNumber *ident;
-@property (strong, nonatomic) NSString *status;
-@property (strong, nonatomic) NSString *date;
-@property (strong, nonatomic) NSString *comment;
+@property (strong, nonatomic) NSString *name;
 
 @end

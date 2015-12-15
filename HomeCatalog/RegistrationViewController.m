@@ -65,6 +65,8 @@
         user.address = self.address.text;
         user.tel = self.phone.text;
         [DataBaseCommunicator loadUser:user];
+        user.orders = [DataBaseCommunicator downloadOrdersForUserIdent:user.ident];
+        user.favorteIdents = [DataBaseCommunicator downloadFavouritesForUserIdent:user.ident];
 
         [self showAlertWithTitle:@"Поздравляем!"
                          message:@"Регистрация успешно завершена."

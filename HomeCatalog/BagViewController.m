@@ -23,11 +23,7 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.editButtonItem.title = @"Delete";
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -119,6 +115,12 @@
             for (Item *item in self.items) {
                 sum += [item.cost intValue] * [[bag.items objectForKey:item.ident] intValue];
             }
+
+            [DataBaseCommunicator loadOrder: [NSString stringWithFormat:@"%d",sum]];
+            bag.items = nil;
+            self.items = nil;
+            [self.tableView reloadData];
+            user.orders = [DataBaseCommunicator downloadOrdersForUserIdent:user.ident];
 
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Информация о заказе" message:[NSString stringWithFormat:@"Заказ успешно оформлен. Ожидайте, с вами свяжутся в ближайшее время.\n\nСумма заказа: %d.-", sum] preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"Продолжить" style:UIAlertActionStyleDefault handler:nil]];

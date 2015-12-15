@@ -11,7 +11,7 @@
 
 @interface CategoryViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSMutableArray *data;
 @property (weak, nonatomic) id <SubcategoryViewDelegate> delegate;
 
 - (IBAction)cancelPopover:(UIBarButtonItem *)sender;

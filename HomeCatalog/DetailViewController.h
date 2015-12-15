@@ -22,9 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *number;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *like;
-@property (nonatomic, strong) UIPopoverController *popOverController;
 
-- (IBAction)barLike:(UIBarButtonItem *)sender;
 - (IBAction)barMinus:(UIBarButtonItem *)sender;
 - (IBAction)barPlus:(UIBarButtonItem *)sender;
 
