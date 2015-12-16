@@ -22,6 +22,7 @@
 + (NSArray *)downloadSections;
 + (NSArray *)downloadSubsections: (NSString *)sectionName;
 + (NSArray *)downloadSeries;
++ (NSArray *)downloadItems;
 + (NSArray *)downloadItemsInSubsection: (Subsection *)subsection;
 + (NSArray *)downloadItemsInSeria: (Seria *)seria;
 + (NSArray *)downloadOrdersForUserIdent: (NSNumber *)ident;
@@ -34,7 +35,7 @@
 + (void)loadFavourite: (NSNumber *)itemIdent;
 + (void)deleteFavourite: (NSNumber *)itemIdent;
 
-+ (NSArray *)searshItemsByName: (NSString *)name;
-+ (NSArray *)searshItemsBySeria: (NSString *)seriaName;
++ (NSArray *)searchItemsByName: (NSString *)name;
++ (NSArray *)searchItemsBySeria: (NSString *)seriaName;
 
 @end

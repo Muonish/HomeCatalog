@@ -27,7 +27,10 @@ static NSString * const reuseIdentifier = @"ReuseID";
                    initWithTarget:self action:@selector(handleSingleTap:)];
     self.tapper.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:self.tapper];
+    if (self.data.count == 0) {
+        self.data = [DataBaseCommunicator downloadItems];
 
+    }
 
 }
 
@@ -68,9 +71,9 @@ static NSString * const reuseIdentifier = @"ReuseID";
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.search && ![textField.text isEqualToString:@""]) {
-        self.data = [DataBaseCommunicator searshItemsByName:self.search.text];
+        self.data = [DataBaseCommunicator searchItemsByName:self.search.text];
         if (self.data.count == 0) {
-            self.data = [DataBaseCommunicator searshItemsBySeria:self.search.text];
+            self.data = [DataBaseCommunicator searchItemsBySeria:self.search.text];
             if (self.data.count == 0) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Результаты поиска." message:@"Ничего не найдено."preferredStyle:UIAlertControllerStyleAlert];
                     [alert addAction:[UIAlertAction actionWithTitle:@"Продолжить" style:UIAlertActionStyleDefault handler:nil]];

@@ -38,7 +38,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showSubcategory"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSString *category = self.data[indexPath.row + 1];
+        NSString *category;
+        if (indexPath.section == 0) {
+            category = self.data[indexPath.row];
+        } else {
+            category = self.data[indexPath.row + 1];
+        }
         SubcategoryViewController *controller = (SubcategoryViewController *)[segue destinationViewController];
         controller.detailItem = category;
         controller.delegate = self.delegate;

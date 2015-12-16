@@ -996,7 +996,9 @@
                     <navigationItem key="navigationItem" id="h4w-nd-e1h">
                         <barButtonItem key="rightBarButtonItem" title="Вход" id="97K-6F-ujk">
                             <connections>
-                                <segue destination="zG6-Pj-BW1" kind="showDetail" id="Imd-U4-J2X"/>
+                                <segue destination="zG6-Pj-BW1" kind="popoverPresentation" popoverAnchorBarButtonItem="97K-6F-ujk" id="Imd-U4-J2X">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1219,7 +1221,7 @@
         <image name="user" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Imd-U4-J2X"/>
+        <segue reference="2BS-h3-Hc0"/>
         <segue reference="8mO-4I-ioO"/>
     </inferredMetricsTieBreakers>
 </document>
